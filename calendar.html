@@ -57,25 +57,32 @@
                         events:[
                     {
                         title: 'Evento 1',
-                        start: '2019-03-01',
-                        color:"red",
-                        textColor:"white" 
+                        description:"Descripcion de la cita",
+                        start: '2019-03-01'
                     },
                     {
                         title: 'Evento 2',
+                        description:"Descripcion de la cita",
                         start: '2019-03-03',
                         end: '2018-03-04',
                     },
                     {
                         title: 'Evento 3 *feriado',
+                        description:"Descripcion de la cita",
                         start: '2019-03-15T12:30:00',
-                        allDay: false,   
+                        allDay: false,
+                        color:"red",
+                        textColor:"white"  
                     }
                   ],
-            color:"red",
-            textColor:"white"
+                        color:"#00B9B9",
+                        textColor:"white" 
                 }
-            ]
+            ],
+            eventClick:function(calEvent,jsEvent,view){
+                $('#eventTitle').html(calEvent.title);
+                $('#eventDescription').html(calEvent.title);
+            }
          
     
            
@@ -89,13 +96,15 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Datos de Cita</h5>
+        <h5 class="modal-title" id="eventTitle"></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        ...
+        <div id="eventDescription">
+
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-success" >Agregar Cita</button>
