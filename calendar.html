@@ -13,6 +13,10 @@
     <link rel="stylesheet" href="css/fullcalendar.min.css">
     <script src="js/fullcalendar.min.js"></script>
 
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
 </head>
 <body>
     <div class="container">
@@ -44,14 +48,63 @@
                 alert("Fecha seleccionada: "+date.format());
                 alert("Vista actual: "+view.name);
                 $(this).css('background-color','red');
+                $("#exampleModal").modal();
 
 
 
-            }
+            },
+            eventSources:[{
+                        events:[
+                    {
+                        title: 'Evento 1',
+                        start: '2019-03-01',
+                        color:"red",
+                        textColor:"white" 
+                    },
+                    {
+                        title: 'Evento 2',
+                        start: '2019-03-03',
+                        end: '2018-03-04',
+                    },
+                    {
+                        title: 'Evento 3 *feriado',
+                        start: '2019-03-15T12:30:00',
+                        allDay: false,   
+                    }
+                  ],
+            color:"red",
+            textColor:"white"
+                }
+            ]
+         
     
            
         });
     });
     </script>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Datos de Cita</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" >Agregar Cita</button>
+        <button type="button" class="btn btn-success" >Modificar</button>
+        <button type="button" class="btn btn-danger" >Borrar</button>
+        <button type="button" class="btn btn-default">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 </html>
