@@ -81,7 +81,8 @@
             ],
             eventClick:function(calEvent,jsEvent,view){
                 $('#eventTitle').html(calEvent.title);
-                $('#eventDescription').html(calEvent.title);
+                $('#eventDescription').html(calEvent.description);
+                $("#exampleModal").modal();
             }
          
     
