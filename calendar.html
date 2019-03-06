@@ -51,34 +51,10 @@
                 $("#exampleModal").modal();
 
 
-
             },
-            eventSources:[{
-                        events:[
-                    {
-                        title: 'Evento 1',
-                        description:"Descripcion de la cita",
-                        start: '2019-03-01'
-                    },
-                    {
-                        title: 'Evento 2',
-                        description:"Descripcion de la cita",
-                        start: '2019-03-03',
-                        end: '2018-03-04',
-                    },
-                    {
-                        title: 'Evento 3 *feriado',
-                        description:"Descripcion de la cita",
-                        start: '2019-03-15T12:30:00',
-                        allDay: false,
-                        color:"red",
-                        textColor:"white"  
-                    }
-                  ],
-                        color:"#00B9B9",
-                        textColor:"white" 
-                }
-            ],
+           
+                        events:'http://localhost/BookDent/eventos.phpl',
+
             eventClick:function(calEvent,jsEvent,view){
                 $('#eventTitle').html(calEvent.title);
                 $('#eventDescription').html(calEvent.description);
