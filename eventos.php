@@ -1,6 +1,6 @@
 <?php
 header('Content-Type: application/json'); //retorna en formato json
-$pdo=new PDO('mysql:host=127.0.0.1;dbname=bookdentdatabase;charset=UTF8','root',''); //"mysql:dbname=bookdentdatabase;host=127.0.0.1","root",""    para conectar con base de datos
+$pdo=new PDO("mysql:dbname=bookdentdatabase;host=127.0.0.1","root",""); //"mysql:dbname=bookdentdatabase;host=127.0.0.1","root",""    para conectar con base de datos
 
 //seleccionar los eventos del calendario 
 
