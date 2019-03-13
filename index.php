@@ -23,12 +23,12 @@
             <hr class="bg-info">
 
             <div class="row form-group">
-                <form>
+                <form action="userAccount.php" method="post">
                     <div class="form-group">
 
                         <div class="col-md-14">
                         
-                            <input type="email" class="form-control" id="InputEmail1" placeholder="Enter email">
+                            <input type="email" name="email" class="form-control" id="InputEmail1"  placeholder="Enter email" required="">
                         
                          </div>
                   </div>
@@ -36,11 +36,11 @@
                         <div class="form-group">
                             <div class="col-md-14">
                                 <div class="form-group">
-                                    <input type="password" class="form-control" id="InputPassword" placeholder="Ingrese contraseña">
+                                    <input type="password" name="password" class="form-control" id="InputPassword" placeholder="Ingrese contraseña"  required="">
                                 </div>
                             </div>
                         </div>
-
+                        <a href="forgotPassword.php">Olvide mi contrasena</a> <br> <br>
                         <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
                 </form>
              </div>
