@@ -24,7 +24,7 @@
     <div class="container">
         <div class="row">
             <div class="col"></div>
-            <div class="col-7">  <div id="CalendarioWeb"></div></div>
+            <div class="col-7 col-xs-10 col-sm-10 ">  <div id="CalendarioWeb"></div></div>
             <div class="col"></div>
         </div>
      </div>
@@ -81,7 +81,7 @@
 
 
         <!-- Modal (Add, Edit & Delete dates) --> 
-        <div class="modal fade" id="EventsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="EventsModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
             <div class="modal-header">
@@ -104,8 +104,8 @@
             </div>
             <div class="modal-footer">
                 <button type="button" id="btnAdd" class="btn btn-success" >Agregar Cita</button>
-                <button type="button" class="btn btn-success" >Modificar</button>
-                <button type="button" class="btn btn-danger" >Borrar</button>
+                <button type="button" id="btnEdit" class="btn btn-success" >Modificar</button>
+                <button type="button" id="btnDelete" class="btn btn-danger" >Borrar</button>
                 <button type="button" class="btn btn-default">Cancelar</button>
             </div>
         </div>
@@ -114,20 +114,61 @@
 
 
 <script>
+var NuevoEvento;
+
+
     $('#btnAdd').click(function(){
 
-        var NuevoEvento= {
+        RecolectarDatosGUI();
+        EnviarInformacion('agregar',NuevoEvento);
+    });
+
+    $('#btnDelete').click(function(){
+
+    RecolectarDatosGUI();
+    EnviarInformacion('eliminar',NuevoEvento);
+
+
+});
+
+    $('#btnEdit').click(function(){
+
+    RecolectarDatosGUI();
+    EnviarInformacion('modificar',NuevoEvento);
+
+
+    });
+
+
+    function RecolectarDatosGUI(){
+        NuevoEvento= {
+            id: $('#txtID').val(),
             title: $('#txtTitle').val(),
             start: $('#txtDate').val()+" "+$('txtHour').val(),
             color: $('#txtColor').val(),
             description: $('#txtDescription').val(),
-            txtColor:"#FFFFFF"
+            textColor:"#FFFFFF"
+            end: $('#txtDate').val()+" "+$('txtHour').val(),
         };
+    }
 
-        $('#CalendarioWeb').fullCalendar('renderEvent', NuevoEvento );
-        $("#EventsModal").modal('toggle');
-        
-    });
+    function EnviarInformacion(accion,objEvento){
+        $.ajax({
+            type:'POST',
+            url:'eventos.php?accion='+accion,
+            data:objEvento,
+            success:function(msg){
+                if(msg){
+                    $('#CalendarioWeb').fullCalendar('refetchEvents');
+                    $("#EventsModal").modal('toggle');
+                }
+            },
+            error:function(){
+                alert("Se ha producido un error.")
+
+            }
+        });
+    }
 
 </script>
 
