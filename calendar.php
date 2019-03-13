@@ -13,7 +13,8 @@
     <link rel="stylesheet" href="css/fullcalendar.min.css">
     <script src="js/fullcalendar.min.js"></script>
 
-  
+    <script src="js/bootstrap-clockpicker.js"></script>
+    <link rel="stylesheet" href="css/bootstrap-clockpicker.css"
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
@@ -34,9 +35,9 @@
     $(document).ready(function(){
         $('#CalendarioWeb').fullCalendar({
             header:{
-                left:'today,prev,next,Mybutton',
-                center:'title',
-                rigt: 'month,basicWeek,basicDay,agendaWeek,agendaDay'
+                left: 'prev,next today',
+                center: 'title',
+                right: 'month,agendaWeek,agendaDay,listWeek'
             },
             customButtons:{
                 Mybutton:{
@@ -46,8 +47,8 @@
                     }
                 }
             },
-            dayClick:function(date,jsEvent,view){
-
+            dayClick: function (date, jsEvent, view){
+              limpiarFormulario();
                 $('#txtDate').val(date.format());
                 $("#EventsModal").modal();
 
@@ -68,10 +69,30 @@
 
                 DateHour= calEvent.start._i.split(" ");
                 $('#txtDate').val(DateHour[0]);
-                $('#txtHour').val(DateHour[1]);
+              //  $('#txtHour').val(DateHour[1]);
 
 
                 $("#EventsModal").modal();
+            },
+
+            editable:true,
+            eventDrop:function(calEvent){
+                $('#txtID').val(calEvent.id);
+                $('#txtTitle').val(calEvent.title);
+                $('#txtColor').val(calEvent.color);
+                $('#txtDescription').val(calEvent.description);
+
+                var DateHour=calEvent.start.format().split("T");
+
+                $('#txtDate').val(DateHour[0]);
+                $('#txtHour').val(DateHour[1]);
+
+             
+                RecolectarDatosGUI();
+                EnviarInformacion('modificar',NuevoEvento,true);
+
+
+
             }
          
     
@@ -92,12 +113,35 @@
             </div>
             <div class="modal-body">
 
-                    Id: <input type="text" id="txtID" name="txtID">  
-                    Fecha: <input type="text" id="txtDate"  name="txtDate"/> <br/>
-                    Titulo <input type="text" id="txtTitle"  name="txtTitle"/> <br/>   
-                    Hora: <input type="text" id="txtHour" value="10:30"  name="txtHour"/> <br/>
-                    Descripción: <textarea id="textarea" type="textDescription" rows="3"></textarea><br/>
-                    Color: <input type="color" value="#ff0000" id="txtColor"><br/>
+                    <input type="hidden" id="txtID" name="txtID">  
+                    <input type="hidden" id="txtDate"  name="txtDate"/> 
+
+                    <div class="form-row">
+                        <div class="form-group col-md-8">
+                        <label>Titulo</label>
+                         <input type="text" id="txtTitle"  class="form-control" placeholder="Titulo del evento"/>  
+                    
+                    </div>
+                    
+                    <div class="form-group col-md-4">
+                     <label>Hora de la cita:</label>
+
+                     <div class="input-group clockpicker" data-autoclose="true">
+                     <input type="text" id="txtHour" value="10:30"  class="form-control"  />
+                     </div>
+                     
+                  
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                    <label>Descripción de la cita:</label>
+                     <textarea id="textarea" type="textDescription" rows="3" class="form-control"></textarea><br/>
+                    </div>
+
+                    <div class="form-group">
+                    <label>Color:</label>
+                     <input type="color" value="#ff0000" id="txtColor" class="form-control" style="height:36px;">
 
 
                 </div>
@@ -152,7 +196,7 @@ var NuevoEvento;
         };
     }
 
-    function EnviarInformacion(accion,objEvento){
+    function EnviarInformacion(accion,objEvento,modal){
         $.ajax({
             type:'POST',
             url:'eventos.php?accion='+accion,
@@ -160,7 +204,11 @@ var NuevoEvento;
             success:function(msg){
                 if(msg){
                     $('#CalendarioWeb').fullCalendar('refetchEvents');
-                    $("#EventsModal").modal('toggle');
+
+                    if(!modal){
+                        $("#EventsModal").modal('toggle');
+                    }
+                
                 }
             },
             error:function(){
@@ -169,6 +217,16 @@ var NuevoEvento;
             }
         });
     }
+
+
+$('.clockpicker').clockpicker();
+
+function limpiarFormulario(){
+                $('#txtID').val('');
+                $('#txtTitle').val('');
+                $('#txtColor').val('');
+                $('#txtDescription').val('');
+}
 
 </script>
 
