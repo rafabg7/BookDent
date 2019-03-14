@@ -1,8 +1,7 @@
 <?php
-
-//start session
+//inicio de sesion
 session_start();
-//load and initialize user class
+// carga de datos e inializacion de clase user
 include 'user.php';
 $user = new User();
 if(isset($_POST['signupSubmit'])){

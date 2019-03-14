@@ -1,18 +1,18 @@
 <?php
 /*
  * User Class
- * This class is used for database related (connect fetch, and insert) operations
+ * Esta clase es usada para (conectar, insertar y recuperacion)
  */
 class User{
     private $dbHost     = "localhost";
     private $dbUsername = "root";
     private $dbPassword = "";
-    private $dbName     = "bookdentdatabase"; //programacionnet
+    private $dbName     = "bookdentdatabase"; 
     private $userTbl    = "users";
     
     public function __construct(){
         if(!isset($this->db)){
-            // Connect to the database
+            // Se  conecta con la base de datos bookdent
             $conn = new mysqli($this->dbHost, $this->dbUsername, $this->dbPassword, $this->dbName);
             if($conn->connect_error){
                 die("Failed to connect with MySQL: " . $conn->connect_error);
@@ -23,7 +23,7 @@ class User{
     }
     
     /*
-     * Returns rows from the database based on the conditions
+     * Retorna las columnas de las bases de datos
      * @param string name of the table
      * @param array select, where, order_by, limit and return_type conditions
      */
@@ -76,7 +76,7 @@ class User{
     }
     
     /*
-     * Insert data into the database
+     * Insercion de la informacion en la base de datos 
      * @param string name of the table
      * @param array the data for inserting into the table
      */
@@ -106,13 +106,13 @@ class User{
     }
     
     /*
-     * Update data into the database
+     * Actualizacion de la base de datos
      * @param string name of the table
      * @param array the data for inserting into the table
      */
     public function update($data, $conditions){
         if(!empty($data) && is_array($data) && !empty($conditions)){
-            //prepare columns and values sql
+            //prepara las columnas y valor del sql
             $cols_vals = '';
             $i = 0;
             if(!array_key_exists('modified',$data)){
@@ -124,7 +124,7 @@ class User{
                 $i++;
             }
             
-            //prepare where conditions
+            //condicionales
             $whereSql = '';
             $ci = 0;
             foreach($conditions as $key => $value){
@@ -133,10 +133,10 @@ class User{
                 $ci++;
             }
             
-            //prepare sql query
+            //sql query
             $query = "UPDATE ".$this->userTbl." SET ".$cols_vals." WHERE ".$whereSql;
 
-            //update data
+            //actualizavion de data
             $update = $this->db->query($query);
             return $update?true:false;
         }else{
