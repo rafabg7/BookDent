@@ -17,7 +17,7 @@ if(!empty($sessData['status']['msg'])){
     unset($_SESSION['sessData']['status']);
 }
 ?>
-<h2>Enter the Email of Your Account to Reset New Password</h2>
+<h2>Ingresa tu email para restablecer tu contrasena</h2>
 <?php echo !empty($statusMsg)?'<p class="'.$statusMsgType.'">'.$statusMsg.'</p>':''; ?>
 <div class="container">
     <div class="regisFrm">

@@ -10,7 +10,7 @@ if(isset($_POST['signupSubmit'])){
         //password and confirm password comparison
         if($_POST['password'] !== $_POST['confirm_password']){
             $sessData['status']['type'] = 'error';
-            $sessData['status']['msg'] = 'Confirm password must match with the password.'; 
+            $sessData['status']['msg'] = 'Confirmla la contrasena, debe coincidir con la anterior.'; 
         }else{
             //check whether user exists in the database
             $prevCon['where'] = array('email'=>$_POST['email']);
@@ -18,7 +18,7 @@ if(isset($_POST['signupSubmit'])){
             $prevUser = $user->getRows($prevCon);
             if($prevUser > 0){
                 $sessData['status']['type'] = 'error';
-                $sessData['status']['msg'] = 'Email already exists, please use another email.';
+                $sessData['status']['msg'] = 'El correo electronico ya existe, por favor ingrese uno nuevo.';
             }else{
                 //insert user data in the database
                 $userData = array(
@@ -32,16 +32,16 @@ if(isset($_POST['signupSubmit'])){
                 //set status based on data insert
                 if($insert){
                     $sessData['status']['type'] = 'success';
-                    $sessData['status']['msg'] = 'You have registered successfully, log in with your credentials.';
+                    $sessData['status']['msg'] = 'Ya estas registrado, ingresa con tus datos registrados';
                 }else{
                     $sessData['status']['type'] = 'error';
-                    $sessData['status']['msg'] = 'Some problem occurred, please try again.';
+                    $sessData['status']['msg'] = 'Ocurrio un problema, por favor intentalo de nuevo.';
                 }
             }
         }
     }else{
         $sessData['status']['type'] = 'error';
-        $sessData['status']['msg'] = 'All fields are mandatory, please fill all the fields.'; 
+        $sessData['status']['msg'] = 'Todos los campos son requeridos, por favor ingrese todos los datos.'; 
     }
     //store signup status into the session
     $_SESSION['sessData'] = $sessData;
@@ -67,11 +67,11 @@ if(isset($_POST['signupSubmit'])){
             $sessData['status']['msg'] = 'Welcome '.$userData['first_name'].'!';
         }else{
             $sessData['status']['type'] = 'error';
-            $sessData['status']['msg'] = 'Wrong email or password, please try again.'; 
+            $sessData['status']['msg'] = 'Error de contrasena o email, por favor intentalo de nuevo.'; 
         }
     }else{
         $sessData['status']['type'] = 'error';
-        $sessData['status']['msg'] = 'Enter email and password.'; 
+        $sessData['status']['msg'] = 'Ingrese el correo y contrasena.'; 
     }
     //store login status into the session
     $_SESSION['sessData'] = $sessData;
@@ -105,7 +105,7 @@ if(isset($_POST['forgotSubmit'])){
         if($prevUser > 0){
             //generat unique string
             $uniqidStr = md5(uniqid(mt_rand()));;
-            
+                
             //update data with forgot pass code
             $conditions = array(
                 'email' => $_POST['email']

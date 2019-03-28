@@ -1,6 +1,6 @@
 <?php
 header('Content-Type: application/json'); //retorna en formato json
-$pdo=new PDO("mysql:dbname=bookdentdatabase;host=127.0.0.1","root","" );   //
+$pdo=new PDO("mysql:dbname=bookdentdatabase;host=127.0.0.1","root","");   //
 
 
 $accion= (isset($_GET['accion']))?$_GET['accion']:'leer';

@@ -16,7 +16,7 @@
 </head>
 <body>
 <?php include("menu.php"); ?>
-
+<!--
 <div class="container">
     <div class="row justify-content-center mt-5 pt-5">
        <div class="col-md-7">
@@ -29,7 +29,7 @@
 
                         <div class="col-md-14">
                         
-                            <input type="email" name="email" class="form-control" id="InputEmail1"  placeholder="Enter email" required="">
+                            <input type="email" name="email" class="form-control" id="InputEmail"  placeholder="Enter email" required="">
                         
                          </div>
                   </div>
@@ -51,7 +51,7 @@
 </body>
 </html>
 
- ------->
+-->
 
 <?php 
 session_start();
@@ -81,17 +81,52 @@ if(!empty($sessData['status']['msg'])){
         <p><b>Phone: </b><?php echo $userData['phone']; ?></p>
     </div>
     <?php }else{ ?>
-    <h2>Login to Your Account</h2>
+    <h2>Inicia sesion</h2>
     <?php echo !empty($statusMsg)?'<p class="'.$statusMsgType.'">'.$statusMsg.'</p>':''; ?>
+
+    <div class="container">
+    <div class="row justify-content-center mt-5 pt-5">
+       <div class="col-md-7">
+            <h1 class="display-4">Inicio de Sesión</h1>
+            <hr class="bg-info">
+
+            <div class="row form-group">
+
     <div class="regisFrm">
         <form action="userAccount.php" method="post">
-            <input type="email" name="email" placeholder="EMAIL" required="">
-            <input type="password" name="password" placeholder="PASSWORD" required="">
-            <div class="send-button">
-                <input type="submit" name="loginSubmit" value="LOGIN">
+        <div class="form-group">
+
+            <div class="col-md-14">
+
+                    <input type="email" name="email" class="form-control" id="InputEmail"  placeholder="Enter email" required="">   <!--  <input type="email" name="email" placeholder="Correo" required=""> -->
+
+                       
+                    </div>
+                  </div>
+
+
+                        <div class="form-group">
+                            <div class="col-md-14">
+                                <div class="form-group">
+
+
+                    <input type="password" name="password" class="form-control" id="InputPassword" placeholder="Ingrese contraseña"  required="">  <!--  <input type="password" name="password" placeholder="Contrasena" required=""> -->
+                    </div>
+                            </div>
+                        </div>
+                        <a href="forgotPassword.php">Olvide mi contrasena</a> <br> <br>
+                        <div class="send-button">
+                        <button type="submit"  name="loginSubmit" class="btn btn-primary">Iniciar Sesión</button>
+                        </div>
+
+                        <p>No tienes cuenta?? <a href="registration.php">Registrate aqui</a></p>
+                        </form>
+          
+       <!--     <div class="send-button">
+                <input type="submit" name="loginSubmit" value="Iniciar sesion">
             </div>
         </form>
-        <p>Don't have an account? <a href="registration.php">Register</a></p>
-    </div>
+        <p>No tienes cuenta?? <a href="registration.php">Registrate aqui</a></p>
+    </div>-->
     <?php } ?>
 </div>
