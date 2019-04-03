@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+/* Cambios sobre un selector img*/
+#logo {
+  width: 80px;
+  height: 80px;
+  margin-top: 10px;
+  border: 1px;
+  display: block;
+}
+
+/* Cambios sobre un selector figure*/
+figcaption {
+    text-align: left;
+    font-size: 30px;
+    color: black;
+    font-family: arial;
+  }
+  
