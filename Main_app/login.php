@@ -12,7 +12,17 @@ $usuarios=$mysqli->query("Select nombres,tipo
                         echo json_encode(array('error'=>true));
                     endif;
 
+
                     if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) $$ strolower($_SERVER['HTTP_X_REQUESTED_WTH']) == 'xmlhttprequest'){
+
+	require('conexion.php');
+    sleep(2);
+
+}
+
+$mysqli->close();
+
+
 
 
 ?>
