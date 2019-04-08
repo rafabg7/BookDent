@@ -153,11 +153,6 @@ ul.lista-curso ul > li {
  color: red;
 }
 
-/* Selector para enlaces */
-a[href*="unemi.edu.ec"]{
-  background-color: orange;
-}
-
 /* Selector de atributo */
 img[id=logo]{
   margin-top: 0;

@@ -10,7 +10,7 @@ body {
   color: black;
   margin: 150px;
   margin-bottom: 40px;
-  position:relative; /*ubica al frente de la página el encabezado*/ 
+  position:relative; // ubica al frente de la página el encabezado
   z-index:2
 }
 
