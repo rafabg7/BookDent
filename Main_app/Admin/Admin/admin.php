@@ -27,7 +27,7 @@
         <a class="nav-link" href="#">Link</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Agregar Usuario</a>
+        <a class="nav-link " href="../Main_app/Admin/adminadduser.php">Agregar Usuario</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Editar Usuario</a>
