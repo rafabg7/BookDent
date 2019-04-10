@@ -7,7 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="css/adduser.css">
     <title></title>
   </head>
   <body>
@@ -23,12 +23,11 @@
       <li class="nav-item active">
         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
-      
       <li class="nav-item">
-        <a class="nav-link " href="../Main_app/Admin/adduser.php">Agregar Usuario</a>
-      </li>
-      <li class="nav-item active">
         <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Agregar Usuario</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Editar Usuario</a>
@@ -40,9 +39,68 @@
         <a class="nav-link disabled" href="#">Cerrar Sesion</a>
       </li>
     </ul>
-   
   </div>
 </nav>
+
+<div>
+  vsdvasv
+</div>
+rgergergre
+
+<form action="">
+
+<div class="form-group">  
+    <label for="name">Nombre:</label>
+    <input type="text" class="form-control" id="name">
+    </div>
+
+    <div class="form-group">  
+    <label for="lastname">Apellidos:</label>
+    <input type="text" class="form-control" id="lastname">
+    </div>
+
+    <div class="form-group">  
+    <label for="phone">Telefono:</label>
+    <input type="text" class="form-control" id="ponel">
+    </div>
+
+    <div class="form-group">  
+    <label for="usuario">Nombre de usuario:</label>
+    <input type="text" class="form-control" id="usuario">
+    </div>
+
+  <div class="form-group">  
+    <label for="email">Correo electronico:</label>
+    <input type="email" class="form-control" id="email">
+    </div>
+
+    <div class="form-group">  
+    <label class="input-group-text" for="tipousuario">Options</label>
+  </div>
+  <select class="custom-select" id="tipousuario">
+    <option selected>Elije uno</option>
+    <option value="1">Dentista</option>
+    <option value="2">Asistente</option>
+    <option value="3">Recepcionista</option>
+  </select>
+</div>
+
+
+    
+  <div class="form-group">
+    <label for="password">Password:</label>
+    <input type="text" class="form-control" id="password">
+  </div>
+									
+                                    
+										
+	
+  <button type="submit" class="btn btn-default">Submit</button>
+								</form>
+
+
+
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
