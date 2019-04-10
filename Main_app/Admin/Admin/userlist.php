@@ -7,7 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/adduser.css">
+
     <title></title>
   </head>
   <body>
@@ -23,11 +23,12 @@
       <li class="nav-item active">
         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
+      
       <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link " href="../Main_app/admin/admin/adduser.php">Agregar Usuario</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Agregar Usuario</a>
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Link</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Editar Usuario</a>
@@ -39,75 +40,48 @@
         <a class="nav-link disabled" href="#">Cerrar Sesion</a>
       </li>
     </ul>
+   
   </div>
 </nav>
+
+<section id="container">
 
 
 <div class="container">
   <div class="row justify-content-center mt-5 pt-5">
     <div class="col-md-7">
-      <h1 class="display-4">Formulario de registro de personal</h1>
+      <h1 class="display-4">Lista de usuarios</h1>
       <hr class="bg-info">
-      <p class="text-danger small pt-0 mt-0">**Todos los campos son obligatorios</p>
+    <!--  <p class="text-danger small pt-0 mt-0">**Todos los campos son obligatorios</p>  -->
 
-      
-<form action="registrar.php" method="post">
+<a href="adduser.php" class="btn_new">Crear Usuario</a>
 
-<div class="row form-group">  
-    <label for="name" class="col-form-label col-md-4">Nombre:</label>
-    <input type="text" class="form-control" name="nombre" id="name" required>
-    </div>
+<table>
+    <tr>
+        <th>ID</th>
+        <TH>Nombre</TH>
+        <th>Apellido</th>
+        <th>Correo</th>
+        <th>Nombre de usuario</th>
+        <th>Telefono</th>
+        <th>Labor</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Jorge</td>
+        <td>gomez</td>  
+        <td>rafasdf@gmail.dom</td>
+        <td>gojo</td>
+        <td>23423704</td>
+        <td>Admin</td>
+        <td>   
+            <a class="link_edit" href="#">Editar</a>
+            <a class="link_delete" href="#">Eliminar</a>
+        </td>
+    </tr>
+</table>
 
-    <div class="row form-group">  
-    <label for="lastname"  class="col-form-label col-md-4">Apellidos:</label>
-    <input type="text" class="form-control" name="apellidos"  id="apellidos" required>
-    </div>
-
-    <div class="row form-group">  
-    <label for="phone"  class="col-form-label col-md-4">Telefono:</label>
-    <input type="text" class="form-control" name="telefono"  id="telefono" required>
-    </div>
-
-    <div class="row form-group">  
-    <label for="usuario"  class="col-form-label col-md-4">Nombre de usuario:</label>
-    <input type="text" class="form-control"  name="nombreusuario" id="nombreusuario" required>
-    </div>
-
-  <div class="row form-group">  
-    <label for="email"  class="col-form-label col-md-4">Correo electronico:</label>
-    <input type="email" class="form-control" name="correo"  id="correo" required>
-    </div>
-
-    <div class="row form-group">  
-    <label for="tipousuario"  class="col-form-label col-md-4">Tipo de usuario:</label>
- 
-  <select class="custom-select" name="tipousuario"  id="tipousuario" required>
-    <option selected>Elije uno</option>
-    <option value="Admin">Dentista</option>
-    <option value="Admin">Asistente</option>
-    <option value="Usuario">Recepcionista</option>
-  </select>
-</div>
-  
-  <div class="row form-group">
-    <label for="password"  class="col-form-label col-md-4">Password:</label>
-    <input type="password" class="form-control" name="contrasena" id="contrasena" required>
-  </div>
-									
-                                    
-  <button type="submit" value="Registrar" class="btn btn-info">Crear usuario</button>
-                </form>
-                </div>
-    </div>
-  </div>
-</div>
-
-
-
-
-
-
-
+</section>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

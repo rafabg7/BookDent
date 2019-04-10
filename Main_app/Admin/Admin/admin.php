@@ -25,7 +25,7 @@
       </li>
       
       <li class="nav-item">
-        <a class="nav-link " href="../Main_app/Admin/adduser.php">Agregar Usuario</a>
+        <a class="nav-link " href="../Main_app/admin/admin/adduser.php">Agregar Usuario</a>
       </li>
       <li class="nav-item active">
         <a class="nav-link" href="#">Link</a>
